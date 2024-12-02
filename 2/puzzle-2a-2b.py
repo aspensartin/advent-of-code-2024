@@ -1,4 +1,4 @@
-import numpy as np
+from numpy import delete
 
 with open('input.txt', 'r') as input:
     data = input.read().split('\n')
@@ -14,10 +14,10 @@ def is_safe(row):
     inc_counter = 0
     dec_counter = 0
     for i in range(len(row)-1):
-        # test ascending case
+        # test increasing case
         if 1 <= row[i+1]-row[i] <= 3:
             inc_counter +=1
-        # test descending case
+        # test decreasing case
         elif -3 <= row[i+1]-row[i] <= -1:
             dec_counter +=1
     if inc_counter == len(row)-1 or dec_counter == len(row)-1:
@@ -28,7 +28,7 @@ for row in data:
         safe_counter +=1
     # try the Problem Dampener
     else:
-        damp_rows = [np.delete(row, [j], axis=0) for j in range(len(row))]
+        damp_rows = [delete(row, [j], axis=0) for j in range(len(row))]
         if True in [is_safe(row) for row in damp_rows]:
             damp_counter +=1
 
