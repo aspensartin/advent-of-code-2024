@@ -11,16 +11,15 @@ safe_counter = 0
 damp_counter = 0
 
 def is_safe(row):
-    inc_counter = 0
-    dec_counter = 0
+    test_counter = 0
     for i in range(len(row)-1):
         # test increasing case
         if 1 <= row[i+1]-row[i] <= 3:
-            inc_counter +=1
+            test_counter +=1
         # test decreasing case
         elif -3 <= row[i+1]-row[i] <= -1:
-            dec_counter +=1
-    if inc_counter == len(row)-1 or dec_counter == len(row)-1:
+            test_counter -=1
+    if abs(test_counter) == len(row)-1:
         return True
 
 for row in data:
