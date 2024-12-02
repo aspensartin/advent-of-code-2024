@@ -1,5 +1,6 @@
-input = open('input.txt', 'r')
-data = input.read().split()
+with open('input.txt', 'r') as input:
+    data = input.read().split()
+    input.close()
 
 left = sorted(data[::2])
 right = sorted(data[1::2])
