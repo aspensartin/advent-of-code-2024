@@ -13,7 +13,7 @@ chunked_data = data.split('do()')
 enabled_data = str()
 for i in chunked_data:
     if "don't()" in i:
-            i = i[:i.find("don't")]
+            i = i[:i.find("don't()")]
     enabled_data +=i
 
 muls_2 = re.findall('mul\\([0-9]{1,3},[0-9]{1,3}\\)', enabled_data)
