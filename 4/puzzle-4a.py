@@ -19,6 +19,5 @@ for i in range(len(chars[:, 0])):
         if i >= 3 and j < len(chars[0, :])-3:
             words.append(chars[i,j]+chars[i-1,j+1]+chars[i-2,j+2]+chars[i-3,j+3])
 
-print(range(len(chars[:, 0])))
 np.savetxt('words.txt', words, fmt='%s')
 print(words.count('XMAS')+words.count('SAMX'))
