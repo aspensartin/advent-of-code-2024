@@ -9,8 +9,6 @@ chars = np.array([list(i) for i in lines])
 words = []
 xmas = 0
 
-print(range(0, len(chars[3:, 0])))
-
 #horizontal
 for i in range(0, len(chars[3:, 0])):
     for j in range(0, len(chars[0, :])):
