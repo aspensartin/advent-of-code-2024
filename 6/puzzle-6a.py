@@ -14,6 +14,9 @@ path[pos[0], pos[1]] = 1
 map_visits[pos[0], pos[1]] = 'X'   
 
 while 0 < pos[0] < len(map[:, 0]) and 0 < pos[1] < len(map[0, :]):
+    if (pos[0]+dir[0]) < 0 or (pos[0]+dir[0]) >= len(map[:, 0]) or (pos[1]+dir[1]) < 0 or (pos[1]+dir[1]) >= len(map[0, :]):
+        print('guard walking out of range, breaking')
+        break
     # check whether obstruction in front of guard
     if map[(pos[0]+dir[0]), (pos[1]+dir[1])] == '#':
         print('guard turning')
