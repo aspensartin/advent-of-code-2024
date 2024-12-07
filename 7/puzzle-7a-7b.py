@@ -23,11 +23,11 @@ def add_mult_or_concat(eqn):
     a = np.array(eqn[0]).flatten()
     b = int(eqn[1])
     if type(a) == int:
-        output = [a+b, a*b, str(a)+str(b)]
+        output = [a+b, a*b, int(str(a)+str(b))]
     else:
         output = np.array([[int(i)+b, int(i)*b, str(i)+str(b)] for i in a]).flatten()
     if len(eqn) == 2:
-        return [int(i) for i in output]
+        return output
     eqn[1] = output
     eqn.pop(0)
     return add_mult_or_concat(eqn)
